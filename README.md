@@ -22,10 +22,10 @@ Built with:
 ## Panduan Instalasi
 Ikuti langkah langkah berikut untuk menjalankan proyek di lingkungan lokal: <br>
 
-1. **Unduh & Ekstrak**
+1. **Unduh & Ekstrak**  
     Unduh repositori ini dalam format ZIP dan ekstrak ke direktori server lokal Anda (contoh: `htdocs` atau `www`)
 
-2. **Instalasi & Dependensi**
+2. **Instalasi & Dependensi**  
     Jalankan perintah berikut untuk menginstal Tailwind CSS dan aset pendukung lainnya:
 
 ```bash
