@@ -7,4 +7,8 @@ Built with:
  - **Tailwind** CSS *(Modern Styling)*
 
 ## Fitur
- - Menambahkan 
+ - **Showcase Proyek:** Menampilkan daftar proyek lengkap dengan gambar preview, tautan GitHub, dan URL demo langsung.
+ - **Gudang Snippet:** Menyimpan potongan kode penting dengan fitur Copy-to-Clipboard sekali klik.
+ - **Kategori Dinamis:** Admin dapat mengelola kategori dan tech stack secara kustom.
+ - **Dashboard Admin:** Sistem manajemen untuk menambah, mengubah, atau menghapus data melalui formulir yang intuitif.
+ - **Desain Responsif:** Antarmuka modern dan bersih yang optimal di semua ukuran layar berkat Tailwind CSS.
