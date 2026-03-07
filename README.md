@@ -28,7 +28,7 @@ Ikuti langkah langkah berikut untuk menjalankan proyek di lingkungan lokal: <br>
 2. **Instalasi & Dependensi**  
     Jalankan perintah berikut untuk menginstal Tailwind CSS dan aset pendukung lainnya:
 
-```bash
+```bash  
 npm install
 ```
 
