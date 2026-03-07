@@ -32,7 +32,43 @@ Ikuti langkah langkah berikut untuk menjalankan proyek di lingkungan lokal: <br>
 npm install
 ```
 
-3. Konfigurasi Database
+3. **Konfigurasi Database**
     1. Buka file `config/database.php`.
     2. Sesuaikan konfigurasi `host`, `username`, `password`, dan `nama_database` dengan server lokal Anda.
 
+4. **Impor Database**
+    1. Buka phpMyAdmin atau klien SQL pilihan Anda.
+    2. Buat database baru.
+    3. Impor file `database/database.sql` ke dalam database tersebut.
+
+5. **Akses Admin**  
+    Tambahkan data user secara manual ke dalam tabel `users` dengan password yang dienkripsi menggunakan **MD5** untuk mulai mengelola konten.
+
+## Cara Penggunaan
+
+### Menambah Proyek/Snippet
+
+1. Masuk ke halaman Proyek atau Snippet
+2. Klik tombol **Tambah (+)** untuk menuju halaman formulir.
+3. isi detail yang diperlukan (Nama Proyek, URL, atau Potongan Kode) lalu simpan.
+
+### Mengalola Kategori
+
+Admin dapat mengakses menu kategori untuk menambah tech stack atau kategori baru agar data tetap terorganisir dengan rapi.
+
+## Kontribusi
+
+Menemukan bug atau punya ide fitur baru?
+    1. Fork repositori ini.
+    2. Buat branch fitur baru.
+    3. Kirimkan Pull Request untuk ditinjau.
+
+## Lisensi
+
+Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) untuk detailnya.
+
+## Kontak
+
+**Nama Lengkap** - Rian Indra Pratama
+Email: rianindrapratama2008@gmail.com
+Link Proyek: [PersonalDevHub](https://github.com/RianIndraP/PersonalDevHub)
