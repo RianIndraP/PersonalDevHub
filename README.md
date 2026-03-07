@@ -21,4 +21,5 @@ Built with:
 
 ## Panduan Instalasi
 Ikuti langkah langkah berikut untuk menjalankan proyek di lingkungan lokal: <br><br>
-1. 
+
+1. Unduh & Ekstrak
