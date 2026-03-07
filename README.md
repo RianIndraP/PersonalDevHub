@@ -42,7 +42,13 @@ npm install
     3. Impor file `database/database.sql` ke dalam database tersebut.
 
 5. **Akses Admin**  
-    Tambahkan data user secara manual ke dalam tabel `users` dengan password yang dienkripsi menggunakan **MD5** untuk mulai mengelola konten.
+    Tambahkan data user secara manual ke dalam tabel `users` untuk mulai mengelola konten. Kamu bisa menjalankan query berikut di tab SQL phpMyAdmin:
+
+    ```sql
+    INSERT INTO users (name, nama_lengkap, email, password) 
+    VALUES ('admin', 'Admin', 'admin@example.com', MD5('password123'));
+    ```
+    *Ganti `password123` dengan password yang kamu inginkan.*
 
 ## Cara Penggunaan
 
