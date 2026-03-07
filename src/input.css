@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Sora:wght@300;400;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+    /* Font Family */
+    --font-mono: "JetBrains Mono", monospace;
+    --font-sans: "Sora", sans-serif;
+
+    /* Colors */
+    --color-bg: #0f0f0f;
+    --color-surface: #1a1a1a;
+    --color-border: #2a2a2a;
+    --color-muted: #555;
+    --color-accent: #e8ff47;
+    --color-text: #e8e8e8;
+    --color-dim: #888;
+}
+
+
+@layer base {
+    body {
+        @apply bg-bg text-text font-sans;
+    }
+
+    .tag {
+        @apply inline-block font-mono text-[0.7rem] px-2 py-0.5 border border-border rounded-sm text-dim;
+    }
+
+    .tag-accent {
+        @apply border-accent text-accent;
+    }
+
+    pre {
+        @apply font-mono;
+    }
+
+    /* Tombol Copy */
+    .copy-btn:active {
+        @apply scale-95 transition-transform;
+    }
+
+    .project-card {
+        @apply transition duration-200 ease-out transition-colors;
+    }
+
+    .project-card:hover {
+        @apply border-muted bg-[#1f1f1f];
+    }
+
+    .project-card:hover .arrow-icon {
+        @apply text-accent;
+    }
+
+    .arrow-icon {
+        @apply text-muted transition-colors duration-200 ease-out;
+    }
+
+    #typing-effect::after,
+    #typing-project::after {
+        content: "|";
+        animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0;
+        }
+    }
+
+}
