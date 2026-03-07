@@ -64,7 +64,7 @@ Admin dapat mengakses menu kategori untuk menambah tech stack atau kategori baru
 
 ## Kontribusi
 
-Menemukan bug atau punya ide fitur baru?  
+Menemukan bug atau punya ide fitur baru?  <br>
     1. Fork repositori ini.  
     2. Buat branch fitur baru.  
     3. Kirimkan Pull Request untuk ditinjau.
