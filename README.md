@@ -20,6 +20,6 @@ Built with:
  - **Dependencies**: NPM (untuk manajemen aset Tailwind)
 
 ## Panduan Instalasi
-Ikuti langkah langkah berikut untuk menjalankan proyek di lingkungan lokal: <br><br>
+Ikuti langkah langkah berikut untuk menjalankan proyek di lingkungan lokal: <br>
 
 1. Unduh & Ekstrak
