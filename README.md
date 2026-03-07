@@ -69,6 +69,6 @@ Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) unt
 
 ## Kontak
 
-**Nama Lengkap** - Rian Indra Pratama
-Email: rianindrapratama2008@gmail.com
+**Nama Lengkap** - Rian Indra Pratama  
+Email: rianindrapratama2008@gmail.com  
 Link Proyek: [PersonalDevHub](https://github.com/RianIndraP/PersonalDevHub)
