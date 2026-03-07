@@ -22,18 +22,17 @@ Built with:
 ## Panduan Instalasi
 Ikuti langkah langkah berikut untuk menjalankan proyek di lingkungan lokal: <br>
 
-1. **Unduh & Ekstrak**  
-    Unduh repositori ini dalam format ZIP dan ekstrak ke direktori server lokal Anda (contoh: `htdocs` atau `www`)
+1. **Unduh & Ekstrak**
+  Unduh repositori ini dalam format ZIP dan ekstrak ke direktori server lokal Anda (contoh: `htdocs` atau `www`)
 
 2. **Instalasi & Dependensi**  
-    Jalankan perintah berikut untuk menginstal Tailwind CSS dan aset pendukung lainnya:
+  Jalankan perintah berikut untuk menginstal Tailwind CSS dan aset pendukung lainnya:
 
 ```bash  
 npm install
 ```
 
 3. Konfigurasi Database
-
-    1. Buka file `config/database.php`.
-    2. Sesuaikan konfigurasi `host`, `username`, `password`, dan `nama_database` dengan server lokal Anda.
+  1. Buka file `config/database.php`.
+  2. Sesuaikan konfigurasi `host`, `username`, `password`, dan `nama_database` dengan server lokal Anda.
 
