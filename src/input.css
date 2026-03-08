@@ -38,39 +38,4 @@
     .copy-btn:active {
         @apply scale-95 transition-transform;
     }
-
-    .project-card {
-        @apply transition duration-200 ease-out transition-colors;
-    }
-
-    .project-card:hover {
-        @apply border-muted bg-[#1f1f1f];
-    }
-
-    .project-card:hover .arrow-icon {
-        @apply text-accent;
-    }
-
-    .arrow-icon {
-        @apply text-muted transition-colors duration-200 ease-out;
-    }
-
-    #typing-effect::after,
-    #typing-project::after {
-        content: "|";
-        animation: blink 0.7s infinite;
-    }
-
-    @keyframes blink {
-
-        0%,
-        100% {
-            opacity: 1;
-        }
-
-        50% {
-            opacity: 0;
-        }
-    }
-
 }
