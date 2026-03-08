@@ -42,13 +42,19 @@ npm install
     3. Impor file `database/database.sql` ke dalam database tersebut.
 
 5. **Akses Admin**  
-    Tambahkan data user secara manual ke dalam tabel `users` untuk mulai mengelola konten. Kamu bisa menjalankan query berikut di tab SQL phpMyAdmin:
+   Proyek ini sudah dilengkapi dengan akun admin bawaan. Gunakan kredensial berikut untuk login pertama kali:
+   - **Username/Name**: `Admin`
+   - **Password**: `admin`
 
-    ```sql
-    INSERT INTO users (name, nama_lengkap, email, password) 
-    VALUES ('admin', 'Admin', 'admin@example.com', MD5('password123'));
-    ```
-    *Ganti `password123` dengan password yang kamu inginkan.*
+   Jika Anda ingin mengubah data admin (Nama, Email, atau Password) secara langsung melalui database, jalankan query SQL berikut:
+
+   ```sql
+   UPDATE users SET 
+     name = 'NamaBaru', 
+     nama_lengkap = 'Nama Lengkap Anda', 
+     email = 'email@anda.com', 
+     password = MD5('password_baru') 
+   WHERE id = 1;
 
 ## Cara Penggunaan
 
@@ -58,7 +64,7 @@ npm install
 2. Klik tombol **Tambah (+)** untuk menuju halaman formulir.
 3. isi detail yang diperlukan (Nama Proyek, URL, atau Potongan Kode) lalu simpan.
 
-### Mengalola Kategori
+### Mengelola Kategori
 
 Admin dapat mengakses menu kategori untuk menambah tech stack atau kategori baru agar data tetap terorganisir dengan rapi.
 
