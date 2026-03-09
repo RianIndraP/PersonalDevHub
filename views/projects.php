@@ -323,9 +323,24 @@ while ($t = mysqli_fetch_assoc($tech_result)) {
                 $demo_url = mysqli_real_escape_string($conn, $_POST['demo_url']);
                 $github_url = mysqli_real_escape_string($conn, $_POST['github_url']);
 
-                
+                $tech_ids = isset($_POST["tech_ids"]) ? $_POST["tech_ids"] : [];
 
+                // Image
+                $image_name = $_FILES['image']['name'];
+                $tmp_name = $_FILES['image']['tmp_name'];
+                $folder = "uploads/" . $image_name;
 
+                move_uploaded_file($tmp_name, $folder);
+
+                $query = "INSERT INTO projects (title, description, image, demo_url, github_url)
+                            VALUES ('$title', '$description', '$image_name', '$demo_url', '$github_url')";
+                mysqli_query($conn, $query);
+
+                $project_id = mysqli_insert_id($conn);
+
+                foreach ($tech_ids as $tech_id) {
+                    mysqli_query($conn, "INSERT INTO project_tech (project_id, tech_id) VALUES ('$project_id', $tech_id')");
+                }
             } ?>
         </div>
     </div>
@@ -334,13 +349,34 @@ while ($t = mysqli_fetch_assoc($tech_result)) {
 
 <!-- ── Scripts ── -->
 <script>
-    
-
-    /* ── File label ── */
+    /* ── File label & Validation ── */
     function updateFileLabel(input) {
-        document.getElementById('file-label').textContent =
-            input.files[0]?.name ?? 'Choose image (JPG, PNG, WEBP)';
+        const label = document.getElementById('file-label');
+        const file = input.files[0]; // Ambil file pertama
+        const maxSize = 2 * 1024 * 1024; // Batas maksimal 2MB
+
+        // 1. Cek apakah ada file yang dipilih
+        if (file) {
+            // 2. Validasi Ukuran File
+            if (file.size > maxSize) {
+                alert("File terlalu besar! Maksimal ukuran adalah 2MB.");
+                input.value = ""; // Reset input file agar kosong kembali
+                label.textContent = 'Choose image (JPG, PNG, WEBP)';
+                label.classList.replace('text-text', 'text-muted'); // Kembalikan warna redup
+                return;
+            }
+
+            // 3. Jika lolos validasi, tampilkan nama file
+            label.textContent = file.name;
+            label.classList.replace('text-muted', 'text-text'); // Buat teks jadi terang
+        } else {
+            // 4. Jika user membatalkan pilihan (cancel)
+            label.textContent = 'Choose image (JPG, PNG, WEBP)';
+            label.classList.replace('text-text', 'text-muted');
+        }
     }
+
+
 
     /* ── Live search ── */
     const searchInput = document.getElementById('search-input');
@@ -351,7 +387,7 @@ while ($t = mysqli_fetch_assoc($tech_result)) {
 
     searchInput.addEventListener('input', () => {
         const q = searchInput.value.toLowerCase().trim();
-        let visible =   0;
+        let visible = 0;
 
         cards.forEach(card => {
             const match = !q ||
