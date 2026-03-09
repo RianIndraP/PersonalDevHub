@@ -1,4 +1,7 @@
-<?php require_once __DIR__ . '/../config/database.php';
+<?php 
+
+require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../helpers/functions.php';
 
 $admin = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM users WHERE id = 1"));
 ?>

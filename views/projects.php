@@ -4,7 +4,7 @@ include_once '../includes/header.php';
 // ── Admin check ──────────────────────────────────────────────
 // Ganti baris ini dengan session check milikmu, contoh:
 // $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true;
-
+$is_admin = true;
 $projects = [];
 
 $query = "SELECT p.id, p.title, p.description, p.image, p.demo_url, p.github_url,
@@ -205,7 +205,7 @@ while ($t = mysqli_fetch_assoc($tech_result)) {
     </div>
 
     <!-- Modal panel -->
-    <div id="add-modal"
+    <div id="modal"
         class="fixed z-50 hidden"
         style="top:50%;left:50%;transform:translate(-50%,-50%);
             width:min(96vw,560px);max-height:90vh;overflow-y:auto;">
@@ -228,7 +228,7 @@ while ($t = mysqli_fetch_assoc($tech_result)) {
             <div class="border-t border-border"></div>
 
             <!-- Form -->
-            <form action="add_project.php" method="POST" enctype="multipart/form-data" class="flex flex-col gap-4">
+            <form action="" method="POST" enctype="multipart/form-data" class="flex flex-col gap-4">
 
                 <!-- Title -->
                 <div class="flex flex-col gap-1.5">
@@ -292,7 +292,7 @@ while ($t = mysqli_fetch_assoc($tech_result)) {
                         <?php foreach ($all_techs as $tech) : ?>
                             <label class="flex items-center gap-2 cursor-pointer group">
                                 <input type="checkbox" name="tech_ids[]" value="<?= $tech['id']; ?>"
-                                    class="w-3.5 h-3.5 shrink-0 accent-[#e8ff47]">
+                                    class="w-3.5 h-3.5 shrink-0 accent-accent">
                                 <span class="font-mono text-xs text-dim group-hover:text-text transition-colors">
                                     <?= htmlspecialchars($tech['name']); ?>
                                 </span>
@@ -308,7 +308,7 @@ while ($t = mysqli_fetch_assoc($tech_result)) {
                                hover:border-muted hover:text-text transition-colors">
                         Cancel
                     </button>
-                    <button type="submit"
+                    <button type="submit" name="submit"
                         class="bg-accent text-bg font-mono text-xs font-semibold px-5 py-2 rounded
                                hover:opacity-90 transition-opacity">
                         Save Project
@@ -316,71 +316,25 @@ while ($t = mysqli_fetch_assoc($tech_result)) {
                 </div>
 
             </form>
+
+            <?php if (isset($_POST['submit'])) {
+                $title = mysqli_real_escape_string($conn, $_POST['title']);
+                $description = mysqli_real_escape_string($conn, $_POST['description']);
+                $demo_url = mysqli_real_escape_string($conn, $_POST['demo_url']);
+                $github_url = mysqli_real_escape_string($conn, $_POST['github_url']);
+
+                
+
+
+            } ?>
         </div>
     </div>
 
 <?php endif; ?>
 
-
-<!-- ── Styles ── -->
-<style>
-    .tag {
-        display: inline-block;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.68rem;
-        padding: 2px 8px;
-        border: 1px solid #2a2a2a;
-        border-radius: 4px;
-        color: #888;
-        white-space: nowrap;
-    }
-
-    .project-card {
-        transition: border-color .2s ease, background-color .2s ease;
-        cursor: pointer;
-    }
-
-    .project-card:hover {
-        border-color: #555;
-        background-color: #1f1f1f;
-    }
-
-    /* Custom scrollbars */
-    #add-modal,
-    #add-modal .grid {
-        scrollbar-width: thin;
-        scrollbar-color: #2a2a2a #0f0f0f;
-    }
-
-    #add-modal::-webkit-scrollbar,
-    #add-modal .grid::-webkit-scrollbar {
-        width: 4px;
-    }
-
-    #add-modal::-webkit-scrollbar-thumb,
-    #add-modal .grid::-webkit-scrollbar-thumb {
-        background: #2a2a2a;
-        border-radius: 2px;
-    }
-</style>
-
 <!-- ── Scripts ── -->
 <script>
-    /* ── Modal ── */
-    function openModal() {
-        document.getElementById('modal-backdrop').classList.remove('hidden');
-        document.getElementById('add-modal').classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-        document.getElementById('modal-backdrop').classList.add('hidden');
-        document.getElementById('add-modal').classList.add('hidden');
-        document.body.style.overflow = '';
-    }
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') closeModal();
-    });
+    
 
     /* ── File label ── */
     function updateFileLabel(input) {
@@ -397,7 +351,7 @@ while ($t = mysqli_fetch_assoc($tech_result)) {
 
     searchInput.addEventListener('input', () => {
         const q = searchInput.value.toLowerCase().trim();
-        let visible = 0;
+        let visible =   0;
 
         cards.forEach(card => {
             const match = !q ||

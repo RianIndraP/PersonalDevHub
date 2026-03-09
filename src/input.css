@@ -23,7 +23,7 @@
     }
 
     .tag {
-        @apply inline-block font-mono text-[0.7rem] px-2 py-0.5 border border-border rounded-sm text-dim;
+        @apply inline-block font-mono text-[0.7rem] px-2 py-0.5 border border-border rounded-sm text-dim whitespace-nowrap;
     }
 
     .tag-accent {
@@ -37,5 +37,33 @@
     /* Tombol Copy */
     .copy-btn:active {
         @apply scale-95 transition-transform;
+    }
+
+    .project-card {
+        transition: border-color .2s ease, background-color .2s ease;
+        cursor: pointer;
+    }
+
+    .project-card:hover {
+        border-color: #555;
+        background-color: #1f1f1f;
+    }
+
+    /* Custom scrollbars */
+    #modal,
+    #modal .grid {
+        scrollbar-width: thin;
+        scrollbar-color: #2a2a2a #0f0f0f;
+    }
+
+    #modal::-webkit-scrollbar,
+    #modal .grid::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    #modal::-webkit-scrollbar-thumb,
+    #modal .grid::-webkit-scrollbar-thumb {
+        background: #2a2a2a;
+        border-radius: 2px;
     }
 }

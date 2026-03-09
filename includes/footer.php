@@ -4,6 +4,7 @@
   <span class="font-mono text-muted text-xs">© 2026</span>
 </footer>
 
+<script src="/assets/js/script.js"></script>
 
 </body>
 
